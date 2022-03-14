@@ -1,0 +1,29 @@
+{
+    "name": "slothkins-beta-2-rest",
+    "version": "1.0.0",
+    "description": "RESTful side of slothkins-2 beta. Utilizing Node.js, Express, and PostgreSQL",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "script": {
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shelbourn/slothkins-beta-2-rest.git"
+    },
+    "keywords": [],
+    "author": "Matthew Shelbourn",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/shelbourn/slothkins-beta-2-rest/issues"
+    },
+    "homepage": "https://github.com/shelbourn/slothkins-beta-2-rest#readme",
+    "dependencies": {
+        "dotenv": "^16.0.0",
+        "express": "^4.17.3",
+        "nodemon": "^2.0.15",
+        "pg": "^8.7.3"
+    }
+}
