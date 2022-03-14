@@ -47,7 +47,7 @@ const createUser = (request, response) => {
             }
             response
                 .status(201)
-                .send(`User added with ID: ${Object.keys(results)}`);
+                .send(`User ${name} has been added successfully!`);
         }
     );
 };
