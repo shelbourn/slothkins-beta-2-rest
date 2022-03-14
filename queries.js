@@ -9,6 +9,7 @@ const pool = new Pool({
     connectionString: isProduction
         ? process.env.DATABASE_URL
         : connectionString,
+    // TODO: Comment out SSL block for local
     ssl: {
         rejectUnauthorized: false
     }
@@ -44,7 +45,9 @@ const createUser = (request, response) => {
             if (error) {
                 throw error;
             }
-            response.status(201).send(`User added with ID: ${result.insertId}`);
+            response
+                .status(201)
+                .send(`User added with ID: ${results.insertId}`);
         }
     );
 };
