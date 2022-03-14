@@ -9,6 +9,7 @@ const pool = new Pool({
     connectionString: isProduction
         ? process.env.DATABASE_URL
         : connectionString,
+    // TODO: Comment out SSL block for local
     ssl: {
         rejectUnauthorized: false
     }
