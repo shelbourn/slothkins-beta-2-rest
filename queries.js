@@ -63,7 +63,9 @@ const updateUser = (request, response) => {
             if (error) {
                 throw error;
             }
-            response.status(200).send(`User modified with ID: ${id}`);
+            response
+                .status(200)
+                .send(`User ${name} with ID: ${id} has been modified! `);
         }
     );
 };
@@ -75,7 +77,7 @@ const deleteUser = (request, response) => {
         if (error) {
             throw error;
         }
-        response.status(200).send(`User deleted with ID: ${id}`);
+        response.status(200).send(`User with ID: ${id} deleted!`);
     });
 };
 
