@@ -19,6 +19,7 @@
     },
     "homepage": "https://github.com/shelbourn/slothkins-beta-2-rest#readme",
     "dependencies": {
+        "cors": "^2.8.5",
         "dotenv": "^16.0.0",
         "express": "^4.17.3",
         "nodemon": "^2.0.15",
