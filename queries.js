@@ -81,11 +81,21 @@ const deleteUser = (request, response) => {
     });
 };
 
+const getGoldDaily = (request, response) => {
+    pool.query('SELECT * FROM gold_prices_daily', (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    });
+};
+
 module.exports = {
     pool,
     getUsers,
     getUserById,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getGoldDaily
 };
