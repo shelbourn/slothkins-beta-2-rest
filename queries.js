@@ -15,6 +15,10 @@ const pool = new Pool({
     }
 });
 
+/***
+ * CRUD operations for Users
+ */
+
 const getUsers = (request, response) => {
     pool.query('SELECT * FROM users ORDER BY id ASC', (error, results) => {
         if (error) {
@@ -81,12 +85,20 @@ const deleteUser = (request, response) => {
     });
 };
 
-const getGoldDaily = (request, response) => {
-    pool.query('SELECT * FROM gold_prices_daily', (error, results) => {
+/***
+ * Operations for retrieving crypto price data for use with K-means clustering
+ */
+
+const getAllCryptoNames = (request, response) => {
+    pool.query('SELECT * FROM CurrencyNames', (err, results) => {
         if (error) {
             throw error;
         }
-        response.status(200).json(results.rows);
+        response
+            .status(200)
+            .send(
+                `All crypto currency names and tickers successfully received!`
+            );
     });
 };
 
@@ -97,5 +109,5 @@ module.exports = {
     createUser,
     updateUser,
     deleteUser,
-    getGoldDaily
+    getAllCryptoNames
 };
