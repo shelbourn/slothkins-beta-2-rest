@@ -104,7 +104,7 @@ const getAllCryptoNames = (request, response) => {
 const getAllCryptoPrices = (request, response) => {
     const currencyName = request.query.currencyName;
 
-    pool.query(`SELECT '${currencyName}' FROM "CurrencyPricesByDate"`),
+    pool.query(`SELECT $1 FROM "CurrencyPricesByDate"`, [currencyName]),
         (error, results) => {
             if (error) {
                 throw error;
