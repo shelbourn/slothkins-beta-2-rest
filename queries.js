@@ -101,6 +101,15 @@ const getAllCryptoNames = (request, response) => {
     );
 };
 
+const getAllCryptoPrices = (request, response) => {
+    pool.query(`SELECT * FROM "CurrencyPriceByDate"`, (error, results) => {
+        if (error) {
+            throw error;
+        }
+        response.status(200).json(results.rows);
+    });
+};
+
 module.exports = {
     pool,
     getUsers,
@@ -108,5 +117,6 @@ module.exports = {
     createUser,
     updateUser,
     deleteUser,
-    getAllCryptoNames
+    getAllCryptoNames,
+    getAllCryptoPrices
 };

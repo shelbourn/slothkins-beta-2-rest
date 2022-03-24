@@ -25,6 +25,7 @@ app.post('/users', db.createUser);
 app.put('/users/:id', db.updateUser);
 app.delete('/users/:id', db.deleteUser);
 app.get('/crypto-names', db.getAllCryptoNames);
+app.get('/all-crypto-prices', db.getAllCryptoPrices);
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`App running on port ${port}.`);
