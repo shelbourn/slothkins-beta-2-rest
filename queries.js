@@ -91,7 +91,7 @@ const deleteUser = (request, response) => {
 
 const getAllCryptoNames = (request, response) => {
     pool.query(
-        `SELECT "Currency Name" FROM "CurrencyNames"`,
+        `SELECT ARRAY(SELECT "Currency Name" FROM "CurrencyNames")`,
         (error, results) => {
             if (error) {
                 throw error;
