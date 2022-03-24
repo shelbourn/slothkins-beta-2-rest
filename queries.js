@@ -90,7 +90,7 @@ const deleteUser = (request, response) => {
  */
 
 const getAllCryptoNames = (request, response) => {
-    pool.query('SELECT * FROM CurrencyNames', (error, results) => {
+    pool.query(`SELECT * FROM "CurrencyNames"`, (error, results) => {
         if (error) {
             throw error;
         }
