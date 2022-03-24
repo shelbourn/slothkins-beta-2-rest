@@ -105,8 +105,9 @@ const getAllCryptoPrices = (request, response) => {
     const currencyNames = [request.query.currencyNames];
 
     return pool.query(
-        currencyNames.forEach(el =>
-            `SELECT ${el} FROM "CurrencyPricesByDate"`,
+        currencyNames.forEach(
+            (el) => `SELECT ${el} FROM "CurrencyPricesByDate"`
+        ),
         (error, results) => {
             if (error) {
                 throw error;
