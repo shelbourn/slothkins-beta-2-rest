@@ -102,19 +102,17 @@ const getAllCryptoNames = (request, response) => {
 };
 
 const getAllCryptoPrices = (request, response) => {
-    const currencyNames = JSON.parse([request.query.currencyNames]);
+    const currencyNames = request.query.currencyNames;
 
-    currencyNames.forEach((el) => {
-        return pool.query(
-            `SELECT "${el}" FROM "CurrencyPricesByDate"`,
-            (error, results) => {
-                if (error) {
-                    throw error;
-                }
-                response.status(200).json(results.rows);
+    return pool.query(
+        `SELECT ${currencyNames} FROM "CurrencyPricesByDate"`,
+        (error, results) => {
+            if (error) {
+                throw error;
             }
-        );
-    });
+            response.status(200).json(results.rows);
+        }
+    );
 };
 
 module.exports = {
