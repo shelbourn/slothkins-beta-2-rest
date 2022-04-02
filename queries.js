@@ -105,7 +105,7 @@ const getAllCryptoPrices = (request, response) => {
     const currencyName = request.query.currencyName;
 
     pool.query(
-        `SELECT ARRAY(SELECT COALESCE("${currencyName}", 0) FROM "CurrencyPricesByDate")`,
+        `SELECT ARRAY(SELECT COALESCE("${currencyName}", 0) FROM "CurrencyPricesByDate" ORDER BY "Date" ASC)`,
         (error, results) => {
             if (error) {
                 throw error;
