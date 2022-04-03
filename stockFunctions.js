@@ -6,7 +6,7 @@ const getCryptoPriceData = (request, response) => {
     StockSocket.addTicker(cryptoTicker, stockPriceChanged);
 
     const stockPriceChanged = (data) => {
-        response.status(200).json(data);
+        response.json(data);
     };
 };
 
