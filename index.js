@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 const db = require('./queries');
+const stocks = require('./stockFunctions');
 const port = 3000;
 
 app.use(cors());
@@ -26,6 +27,7 @@ app.put('/users/:id', db.updateUser);
 app.delete('/users/:id', db.deleteUser);
 app.get('/crypto-names', db.getAllCryptoNames);
 app.get('/all-crypto-prices', db.getAllCryptoPrices);
+app.get('/crypto-data:ticker', stocks.getCryptoPriceData);
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`App running on port ${port}.`);
