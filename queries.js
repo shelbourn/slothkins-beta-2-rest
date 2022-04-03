@@ -115,6 +115,11 @@ const getAllCryptoPrices = (request, response) => {
     );
 };
 
+const getDetailedCryptoData = (request, response) => {
+    const test = { hello: 'world' };
+    response.status(200).json(test);
+};
+
 module.exports = {
     pool,
     getUsers,
@@ -123,5 +128,6 @@ module.exports = {
     updateUser,
     deleteUser,
     getAllCryptoNames,
-    getAllCryptoPrices
+    getAllCryptoPrices,
+    getDetailedCryptoData
 };
