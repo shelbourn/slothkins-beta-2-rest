@@ -5,7 +5,12 @@ const app = express();
 const db = require('./queries');
 const port = 3000;
 
-app.use(cors());
+app.use(
+    cors({
+        origin: ['http://localhost:3000'],
+        credentials: true
+    })
+);
 app.use(bodyParser.json());
 app.use(
     bodyParser.urlencoded({
