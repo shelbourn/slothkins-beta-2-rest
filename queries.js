@@ -116,8 +116,17 @@ const getAllCryptoPrices = (request, response) => {
 };
 
 const getDetailedCryptoData = (request, response) => {
-    const test = { hello: 'world' };
-    response.status(200).json(test);
+    const ticker = request.query.ticker;
+
+    pool.query(
+        `SELECT "Name", "Symbol", "Date", "High", "Low", "Open", "Close", "Volume", "Marketcap" FROM "${ticker}" ORDER BY "Date" ASC`,
+        (error, results) => {
+            if (error) {
+                throw error;
+            }
+            response.status(200).json(results.rows);
+        }
+    );
 };
 
 module.exports = {
