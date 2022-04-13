@@ -129,6 +129,34 @@ const getDetailedCryptoData = (request, response) => {
     );
 };
 
+const addCryptoPriceData = (request, response) => {
+    const {
+        SNo,
+        Name,
+        Symbol,
+        Date,
+        High,
+        Low,
+        Open,
+        Close,
+        Volume,
+        Marketcap
+    } = request.body;
+
+    pool.query(
+        `INSERT INTO "${Symbol}" VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+        [SNo, Name, Symbol, Date, High, Low, Open, Close, Volume, Marketcap],
+        (error, results) => {
+            if (error) {
+                throw error;
+            }
+            response
+                .status(200)
+                .send(`Table for ${Symbol} has been successfully updated!`);
+        }
+    );
+};
+
 module.exports = {
     pool,
     getUsers,
@@ -138,5 +166,6 @@ module.exports = {
     deleteUser,
     getAllCryptoNames,
     getAllCryptoPrices,
-    getDetailedCryptoData
+    getDetailedCryptoData,
+    addCryptoPriceData
 };
