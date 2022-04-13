@@ -119,7 +119,7 @@ const getDetailedCryptoData = (request, response) => {
     const ticker = request.query.ticker;
 
     pool.query(
-        `SELECT "Name", "Symbol", "Date", "High", "Low", "Open", "Close", "Volume", "Marketcap" FROM "${ticker}" ORDER BY "Date" ASC`,
+        `SELECT "SNo", "Name", "Symbol", "Date", "High", "Low", "Open", "Close", "Volume", "Marketcap" FROM "${ticker}" ORDER BY "Date" ASC`,
         (error, results) => {
             if (error) {
                 throw error;
