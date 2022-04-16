@@ -7,7 +7,7 @@ const port = 3000;
 
 app.use(
     cors({
-        origin: ['http://localhost:3000'],
+        origin: ['https://slothkins-beta-2.herokuapp.com/'],
         credentials: true
     })
 );
