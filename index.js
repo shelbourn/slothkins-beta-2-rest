@@ -14,7 +14,7 @@ app.use(
 
 app.get('/', (request, response) => {
     response.json({
-        info: 'You are a dick, and have always at least been a penis!'
+        info: 'Server health check succeeded'
     });
 });
 
