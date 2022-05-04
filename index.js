@@ -5,12 +5,6 @@ const app = express();
 const db = require('./queries');
 const port = 3000;
 
-// app.use(
-//     cors({
-//         origin: ['https://slothkins-beta-2.herokuapp.com/'],
-//         credentials: true
-//     })
-// );
 app.use(bodyParser.json());
 app.use(
     bodyParser.urlencoded({
